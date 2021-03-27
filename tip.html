@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2><span>TIP CALCULATOR</span></h2>
+
+
+
+        <form id="form">
+
+            How much was your bill?
+            <br>
+            $:<input type="number" placeholder="Bill Amount" id="amount">
+            <br>
+            <br>
+
+            How was your service?
+            <br>
+            <br>
+            <select id="service">
+
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Bad">Bad</option>
+
+            </select>
+            <br>
+            <br>
+
+            How many people are sharing the bill?
+            <br>
+            <input type="number" placeholder="Number of People" id="people">
+
+            <br>
+            <br>
+
+            <button type="button" id="Submit" onclick="calculateTip()">CALCULATE!</button>
+
+        </form>
+    </div>
+    <div id="tip"></div>
+    <script type="text/javascript">
+
+    function calculateTip () {
+        const amount = document.getElementById("amount").value;
+        const service = document.getElementById("service").value;
+        const people = document.getElementById("people").value;
+
+        const tipAmount = (amount / 100) * 20;
+        const eachPerson = tipAmount / people;
+
+        // alert("Your tip for each person is $" + eachPerson + " an your service was " + service + ".")
+        
+        const tipDisplay = document.createElement("p");
+        const tipContainer = document.getElementById("tip");
+        tipContainer.appendChild(tipDisplay);
+        tipDisplay.innerHTML = parseInt(eachPerson);
+    }
+    
+    </script>
+
+</body>
+
+</html>

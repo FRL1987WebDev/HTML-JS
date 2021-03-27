@@ -1,0 +1,65 @@
+.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Talk.JS</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div>
+
+        <h1>WhaleTalk.JS</h1>
+
+        <input type="text" placeholder="Enter for Whale Speak!" required id="whaleTalk">
+        <button onclick="displayWhaleTalk()">Convert!</button>
+
+        <div id="whaleTalkContainer">
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function displayWhaleTalk() {
+            const whaleTalkContainer = document.getElementById("whaleTalkContainer");
+            const inputWhale = document.getElementById("whaleTalk").value;
+            const paragraph = document.createElement("p");
+
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+            let newTalk = [];
+
+            for (let x = 0; x < inputWhale.length; x++) {
+                for (let j = 0; j < vowels.length; j++) {
+                    if (inputWhale[x] === vowels[j]) {
+                        newTalk.push(inputWhale[x])
+                    }
+                } if (inputWhale[x] === 'e') {
+                    newTalk.push(inputWhale[x])
+                } if (inputWhale[x] === 'u') {
+                    newTalk.push(inputWhale[x])
+                }
+            }
+
+            newTalk = newTalk.join('');
+            newTalk = newTalk.toUpperCase();
+
+
+            paragraph.innerHTML = newTalk
+            whaleTalkContainer.appendChild(paragraph)
+            inputWhale = inputWhale.innerHTML = ""
+        }
+
+    </script>
+</body>
+
+</html>

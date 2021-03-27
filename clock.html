@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+
+    <h1>Clock.JS</h1>
+    <button onclick="displayClock()">Click for time!</button>
+    <div id="clockContainer"></div>
+
+    <script>
+
+        function displayClock () {
+            const date = new Date();
+            let hours = date.getHours();
+            let minuites = date.getMinutes();
+            let seconds = date.getSeconds();
+
+            if (hours < 10) {
+                hours = "0" + hours
+            }
+
+            if (minuites < 10) {
+                minuites = "0" + minuites
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds
+            }
+
+            const time = hours + ":" + minuites + ":" + seconds;
+
+            alert(time)
+        }
+
+    </script>
+    
+</body>
+</html>
